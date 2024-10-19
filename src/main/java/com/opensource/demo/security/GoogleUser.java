@@ -36,10 +36,19 @@ public class GoogleUser implements DemoUser {
 
 	@Override
 	public String getUsername() {
-		Map<String, Object> a=	getAttributes();
-		return Optional.ofNullable(a)
-			.map(attrs -> attrs.get("name"))
+		return getAttrValue("name");
+	}
+
+	@Override
+	public String getEmailAddress() {
+		return getAttrValue("email");
+	}
+
+	private String getAttrValue(String key) {
+		return Optional.ofNullable(getAttributes())
+			.map(attrs -> attrs.get(key))
 			.map(Object::toString)
 			.orElse(null);
 	}
+
 }

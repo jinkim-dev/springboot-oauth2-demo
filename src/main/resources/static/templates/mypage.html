@@ -12,6 +12,7 @@
 <h1>My Page</h1>
 <a th:href="@{/home}">Go Home</a>
 <div class="container">Welcome <span th:text="${name}"></span></div>
+<div class="container" th:if="${email != null}">Email: <span th:text="${email}"></span></div>
 <form th:action="@{/logout}">
   <button type="submit">Logout</button>
 </form>

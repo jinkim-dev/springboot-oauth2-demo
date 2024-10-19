@@ -15,6 +15,12 @@ public abstract class SecurityContextUtil {
 			.orElse(null);
 	}
 
+	public static String getEmailAddress() {
+		return Optional.ofNullable(getDemoUser())
+			.map(DemoUser::getEmailAddress)
+			.orElse(null);
+	}
+
 	public static DemoUser getDemoUser() {
 		return Optional.ofNullable(SecurityContextHolder.getContext())
 			.map(SecurityContext::getAuthentication)

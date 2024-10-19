@@ -36,6 +36,15 @@ public class KakaoUser implements DemoUser {
 
 	@Override
 	public String getUsername() {
+		return getPropertyValue("nickname");
+	}
+
+	@Override
+	public String getEmailAddress() {
+		return null;
+	}
+
+	private String getPropertyValue(String key) {
 		return Optional.ofNullable(getAttributes())
 			.map(attrs -> attrs.get("properties"))
 			.map(properties -> {
@@ -44,7 +53,7 @@ public class KakaoUser implements DemoUser {
 				}
 				return null;
 			})
-			.map(properties -> properties.get("nickname"))
+			.map(properties -> properties.get(key))
 			.map(Object::toString)
 			.orElse(null);
 	}

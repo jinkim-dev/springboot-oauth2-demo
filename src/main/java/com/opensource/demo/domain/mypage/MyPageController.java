@@ -12,6 +12,7 @@ public class MyPageController {
 	@GetMapping("/mypage")
 	public String mypage(Model model) {
 		model.addAttribute("name", SecurityContextUtil.getUsername());
+		model.addAttribute("email", SecurityContextUtil.getEmailAddress());
 		return "mypage";
 	}
 
