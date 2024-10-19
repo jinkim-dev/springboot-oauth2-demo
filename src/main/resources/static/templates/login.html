@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Demo</title>
+  <meta charset="UTF-8"/>
+</head>
+<style>
+.login_btn {
+  display: block;
+}
+.login_btn:hover {
+  opacity: 0.5;
+}
+.login_btn img {
+  width: 180px;
+  height: 34px;
+}
+}
+</style>
+<body>
+<h1>OAuth2 Login</h1>
+<a th:class="login_btn" th:href="@{/oauth2/authorization/google}"><img th:src="@{/images/google_login_btn.png}"></a>
+<a th:class="login_btn" th:href="@{/oauth2/authorization/kakao}"><img th:src="@{/images/kakao_login_btn.png}"></a>
+</body>
+</html>

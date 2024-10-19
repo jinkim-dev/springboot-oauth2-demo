@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Demo</title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width"/>
+  <base href="/"/>
+</head>
+<body>
+<h1>My Page</h1>
+<a th:href="@{/home}">Go Home</a>
+<div class="container">Welcome <span th:text="${name}"></span></div>
+<form th:action="@{/logout}">
+  <button type="submit">Logout</button>
+</form>
+</body>
+</html>
