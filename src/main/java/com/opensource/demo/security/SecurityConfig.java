@@ -33,7 +33,7 @@ public class SecurityConfig {
 		return http
 			.csrf(AbstractHttpConfigurer::disable)
 			.headers(customizer -> customizer.frameOptions(FrameOptionsConfig::sameOrigin))
-			.authorizeHttpRequests(authorize -> authorize.requestMatchers(LOGIN_API).anonymous().anyRequest().authenticated())
+			.authorizeHttpRequests(authorize -> authorize.requestMatchers("/images/**").permitAll().requestMatchers(LOGIN_API).anonymous().anyRequest().authenticated())
 			.oauth2Login(
 				customizer -> customizer.loginPage(LOGIN_API).userInfoEndpoint(config -> config.userService(oAuth2UserService))
 					.redirectionEndpoint(c -> c.baseUri("/auth/code/**/callback"))
